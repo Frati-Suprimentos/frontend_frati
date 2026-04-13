@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES2018",
+    "module": "none",
+    "strict": true,
+    "removeComments": false,
+    "outFile": "i18n.js",
+    "sourceMap": false
+  },
+  "files": [
+    "i18n.ts"
+  ]
+}

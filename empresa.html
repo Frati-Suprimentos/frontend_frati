@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Frati Suprimentos</title>
+  <meta name="description" content="Suprimentos Industriais — Elevação, Amarração e Movimentação de Cargas">
+  <link rel="icon" href="imagens/logovr.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ========== HEADER FIXO ========== -->
+  <header>
+
+    <!-- TOPBAR: logo + redes + idioma -->
+    <div class="topbar">
+      <div class="topbar-inner">
+        <div class="logo">
+          <a href="index.html">
+            <img src="imagens/Fratilogoprvr.svg" alt="Frati Suprimentos">
+          </a>
+        </div>
+        <div class="topbar-right">
+          <nav class="social-links" aria-label="Redes sociais">
+            <a href="https://www.instagram.com/fratisuprimentos" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <img src="imagens/instagramvr.svg" alt="Instagram">
+            </a>
+            <a href="https://www.linkedin.com/company/frati-suprimentos" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <img src="imagens/linkedinvr1.svg" alt="LinkedIn">
+            </a>
+            <a href="https://www.youtube.com/@FratiSuprimentos" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+              <img src="imagens/youtubevr.svg" alt="YouTube">
+            </a>
+            
+            <a href="#" id="languageToggle" class="btn btn-eng" aria-label="Switch language" data-i18n="topbar.languageButton">English <img src="imagens/worldbr.svg" alt=""></a>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAVBAR: menu + botão loja -->
+    <div class="navbar">
+      <div class="navbar-inner">
+        <nav aria-label="Menu principal">
+          <ul>
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="empresa.html" data-i18n="nav.institutional">Institucional</a></li>
+            <li><a href="produtos.html" data-i18n="nav.products">Produtos</a></li>
+            <li><a href="catalogo.html" data-i18n="nav.catalog">Catálogo</a></li>
+             <li><a href="servicos.html" data-i18n="nav.services">Serviços</a></li>
+            <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
+            <li><a href="contato.html" data-i18n="nav.contact">Contato</a></li>
+          </ul>
+        </nav>
+        <a href="https://www.lojafrati.com.br/" target="_blank" rel="noopener noreferrer" class="btn btn-loja" aria-label="Acessar loja virtual" data-i18n="nav.store">Loja Virtual</a>
+      </div>
+    </div>
+
+  </header>
+              <!-- ─── INSTITUCIONAL ─── -->
+      <section id="empresa" aria-labelledby="titulo-empresa">
+        <div class="empresa-gridinstitucional">
+          <div class="empresa-text">
+            <h2 id="titulo-empresa" data-i18n="about.title">Conheça a Frati</h2>
+            <div class="underline"></div>
+            <p data-i18n="about.p1">A Frati Suprimentos foi fundada para atender à demanda por soluções industriais seguras e eficientes. Com mais de 20 anos de experiência, consolidou-se no mercado brasileiro como referência em elevação, amarração e movimentação de cargas.</p>
+            <p data-i18n="about.p2">Nossa equipe técnica alia conhecimento especializado a um atendimento personalizado, assegurando soluções sob medida para cada cliente.</p>
+            <nav class="empresa-links" aria-label="Links institucionais">
+              <a href="#certificacoes" data-i18n="about.linkQuality">→ Controle de Qualidade</a>
+              <a href="#certificados" data-i18n="about.linkCertifications">→ Certificações</a>
+              <a href="#profissionais" data-i18n="about.linkExperts">→ Profissionais Especializados</a>
+            </nav>
+          </div>
+          <div>
+            <!-- espaço para imagem com bordas arredondadas -->
+             <div style="width:100%;aspect-ratio:4/3;border-radius:var(--radius);overflow:hidden;display:flex;align-items:center;justify-content:center;">
+               <img src="imagens/sobrenos.svg" alt="Conheça a Frati" style="width:100%;height:100%;object-fit:contain;">
+             </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+  <script src="i18n.js" defer></script>
+  <script src="ui.js" defer></script>
+  </body>
+  </html>

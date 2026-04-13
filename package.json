@@ -1,0 +1,13 @@
+{
+  "name": "frontend_frati",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site institucional Frati com i18n em TypeScript",
+  "scripts": {
+    "build:i18n": "tsc -p tsconfig.json",
+    "watch:i18n": "tsc -p tsconfig.json --watch"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
+}

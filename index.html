@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Frati Suprimentos</title>
+  <meta name="description" content="Suprimentos Industriais — Elevação, Amarração e Movimentação de Cargas">
+  <link rel="icon" href="imagens/logovr.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ========== HEADER FIXO ========== -->
+  <header>
+
+    <!-- TOPBAR: logo + redes + idioma -->
+    <div class="topbar">
+      <div class="topbar-inner">
+        <div class="logo">
+          <a href="index.html">
+            <img src="imagens/Fratilogoprvr.svg" alt="Frati Suprimentos">
+          </a>
+        </div>
+        <div class="topbar-right">
+          <nav class="social-links" aria-label="Redes sociais">
+            <a href="https://www.instagram.com/fratisuprimentos" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <img src="imagens/instagramvr.svg" alt="Instagram">
+            </a>
+            <a href="https://www.linkedin.com/company/frati-suprimentos" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <img src="imagens/linkedinvr1.svg" alt="LinkedIn">
+            </a>
+            <a href="https://www.youtube.com/@FratiSuprimentos" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+              <img src="imagens/youtubevr.svg" alt="YouTube">
+            </a>
+            
+            <div class="language-switch">
+               <img src="imagens/portugues.svg" alt="Português" onclick="setLanguage('pt-BR')">
+               <img src="imagens/english.svg" alt="English" onclick="setLanguage('en-US')">
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAVBAR: menu + botão loja -->
+    <div class="navbar">
+      <div class="navbar-inner">
+        <nav aria-label="Menu principal">
+          <ul>
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="empresa.html" data-i18n="nav.institutional">Institucional</a></li>
+            <li><a href="#produtos" data-i18n="nav.products">Produtos</a></li>
+            <li><a href="#catalogo" data-i18n="nav.catalog">Catálogo</a></li>
+             <li><a href="#servicos" data-i18n="nav.services">Serviços</a></li>
+            <li><a href="#blog" data-i18n="nav.blog">Blog</a></li>
+            <li><a href="#contato" data-i18n="nav.contact">Contato</a></li>
+          </ul>
+        </nav>
+        <a href="https://www.lojafrati.com.br/" target="_blank" rel="noopener noreferrer" class="btn btn-loja" aria-label="Acessar loja virtual" data-i18n="nav.store">Loja Virtual</a>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- ========== CONTEÚDO PRINCIPAL ========== -->
+  <main>
+
+    <!-- ─── BANNER HERO (ATUALIZADO) ─── -->
+<section class="hero" aria-label="Banner principal">
+
+  <!-- IMAGEM DE FUNDO -->
+  <div class="hero-bg"></div>
+
+  <!-- OVERLAY ESCURO -->
+  <div class="hero-overlay"></div>
+
+  <div class="hero-inner">
+
+    <!-- TEXTO -->
+    <div class="hero-text">
+      <h1 data-i18n="hero.title">
+        A MAIS COMPLETA LINHA DE<br>
+        MATERIAIS PARA ELEVAÇÃO,<br>
+        AMARRAÇÃO E MOVIMENTAÇÃO<br>
+        DE CARGA
+      </h1>
+
+      <p data-i18n="hero.description">
+        Combinamos qualidade, tecnologia e atendimento especializado para oferecer
+        produtos que atendem às normas técnicas mais exigentes, proporcionando
+        tranquilidade e segurança em cada aplicação.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#produtos" class="btn" data-i18n="hero.ctaLearn">SAIBA MAIS</a>
+        <a href="#contato" class="btn btn-outline-white" data-i18n="hero.ctaContact">ENTRE EM CONTATO</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+    <!-- ─── CONTEÚDO COM MARGEM ─── -->
+    <div class="page-content">
+
+      <!-- ─── INSTITUCIONAL ─── -->
+      <section id="empresa" aria-labelledby="titulo-empresa">
+        <div class="empresa-grid">
+          <div class="empresa-text">
+            <h2 id="titulo-empresa" data-i18n="about.title">Conheça a Frati</h2>
+            <div class="underline"></div>
+            <p data-i18n="about.p1">A Frati Suprimentos foi fundada para atender à demanda por soluções industriais seguras e eficientes. Com mais de 20 anos de experiência, consolidou-se no mercado brasileiro como referência em elevação, amarração e movimentação de cargas.</p>
+            <p data-i18n="about.p2">Nossa equipe técnica alia conhecimento especializado a um atendimento personalizado, assegurando soluções sob medida para cada cliente.</p>
+            <nav class="empresa-links" aria-label="Links institucionais">
+              <a href="#certificacoes" data-i18n="about.linkQuality">→ Controle de Qualidade</a>
+              <a href="#certificados" data-i18n="about.linkCertifications">→ Certificações</a>
+              <a href="#profissionais" data-i18n="about.linkExperts">→ Profissionais Especializados</a>
+            </nav>
+          </div>
+          <div>
+            <!-- espaço para imagem com bordas arredondadas -->
+             <div style="width:100%;aspect-ratio:4/3;border-radius:var(--radius);overflow:hidden;display:flex;align-items:center;justify-content:center;">
+               <img src="imagens/sobrenos.svg" alt="Conheça a Frati" style="width:100%;height:100%;object-fit:contain;">
+             </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── PRODUTOS ─── -->
+      <section id="produtos" aria-labelledby="titulo-produtos">
+        <div class="section-header">
+          <h2 id="titulo-produtos" data-i18n="products.title">Produtos</h2>
+          <div class="underline"></div>
+          <p data-i18n="products.description">Linha completa para elevação, amarração e movimentação de cargas industriais.</p>
+        </div>
+
+        <div class="cards-grid" id="productsGrid">
+
+          <a href="#" class="card-produto" aria-label="Cabo de Aço">
+            <div class="card-img-wrap">
+              <img src="imagens/CABODEAÇO.svg" alt="Cabo de Aço">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title" data-i18n="products.item1">Cabo de Aço</h3>
+              <span class="btn" data-i18n="common.seeMore">Ver mais</span>
+            </div>
+          </a>
+
+          <a href="#" class="card-produto" aria-label="Laços de Cabo de Aço">
+            <div class="card-img-wrap">
+              <img src="imagens/LAÇOSCABOS.svg" alt="Laços de Cabo de Aço">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title" data-i18n="products.item2">Laços de Cabo de Aço</h3>
+              <span class="btn" data-i18n="common.seeMore">Ver mais</span>
+            </div>
+          </a>
+
+          <a href="#" class="card-produto" aria-label="Correntes e Linga de Corrente">
+            <div class="card-img-wrap">
+              <img src="imagens/CORRENTE.svg" alt="Correntes e Linga de Corrente">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title" data-i18n="products.item3">Correntes e Linga de Corrente</h3>
+              <span class="btn" data-i18n="common.seeMore">Ver mais</span>
+            </div>
+          </a>
+
+          <a href="#" class="card-produto" aria-label="Cinta Sling">
+            <div class="card-img-wrap">
+              <img src="imagens/CINTA.svg" alt="Cinta Sling">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title" data-i18n="products.item4">Cinta Sling</h3>
+              <span class="btn" data-i18n="common.seeMore">Ver mais</span>
+            </div>
+          </a>
+
+          <a href="#" class="card-produto" aria-label="Conjunto de Amarração">
+            <div class="card-img-wrap">
+              <img src="imagens/CONJUNTO.svg" alt="Conjunto de Amarração">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title" data-i18n="products.item5">Conjunto de Amarração</h3>
+              <span class="btn" data-i18n="common.seeMore">Ver mais</span>
+            </div>
+          </a>
+
+          <a href="#" class="card-produto" aria-label="Acessórios">
+            <div class="card-img-wrap">
+              <img src="imagens/ACESSORIOS.svg" alt="Acessórios">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title" data-i18n="products.item6">Acessórios</h3>
+              <span class="btn" data-i18n="common.seeMore">Ver mais</span>
+            </div>
+          </a>
+
+          <a href="#" class="card-produto" aria-label="Equipamentos">
+            <div class="card-img-wrap">
+              <img src="imagens/EQUIPAMENTO.svg" alt="Equipamentos">
+        
+            </div>
+            <div class="card-body">
+              <h3 class="card-title" data-i18n="products.item7">Equipamentos</h3>
+              <span class="btn" data-i18n="common.seeMore">Ver mais</span>
+            </div>
+          </a>
+
+          <a href="#" class="card-produto" aria-label="Ferramentas">
+            <div class="card-img-wrap">
+              <img src="imagens/FERRAMENTAS.svg" alt="Ferramentas">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title" data-i18n="products.item8">Ferramentas</h3>
+              <span class="btn" data-i18n="common.seeMore">Ver mais</span>
+            </div>
+          </a>
+
+          <a href="#" class="card-produto" aria-label="Lubrificantes">
+            <div class="card-img-wrap">
+              <img src="imagens/LUBRIFICANTES.svg" alt="Lubrificantes">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title" data-i18n="products.item9">Lubrificantes</h3>
+              <span class="btn" data-i18n="common.seeMore">Ver mais</span>
+            </div>
+          </a>
+         <br>
+        </div>
+      </section>
+
+      <!-- ─── SERVIÇOS ─── -->
+      <div class="servicos servicos-header">
+  
+  <div class="servicos-left">
+    <h2 data-i18n="services.title">Soluções em Destaque</h2>
+    <br>
+    <div class="underline"></div>
+    <p class="servicos-text" data-i18n="services.subtitle">Soluções completas e seguras para cada etapa da sua operação</p>
+  </div>
+
+  <div class="servicos-right">
+    <p class="servicos-text" data-i18n="services.description">
+      Disponibilizamos soluções completas para atender às necessidades de cada operação.
+      Atuamos com fornecimento de materiais de alta qualidade, suporte técnico especializado
+      e orientação para a melhor aplicação de cada produto, garantindo eficiência,
+      segurança e confiabilidade em todas as aplicações.
+    </p>
+  </div>
+
+</div>
+        <div class="cards-grid2" id="servicesGrid2">
+
+          <a href="#" class="card-servico" aria-label="Análises Técnicas e Dimensionamento">
+            <div class="card-img-wrap">
+              <img src="imagens/ANALISETEC.svg" alt="Análises Técnicas e Dimensionamento">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title card-seo" data-i18n="services.item1Title">Análises Técnicas e Dimensionamento de Soluções</h3>
+              <p class="card-desc" data-i18n="services.item1Desc">Antes de aplicar qualquer equipamento, é fundamental avaliar as condições e exigências da operação.</p>
+              <span class="btn" data-i18n="common.learnMore">Saiba Mais</span>
+            </div>
+          </a>
+
+          <a href="#" class="card-servico" aria-label="Acompanhamento em Campo">
+            <div class="card-img-wrap">
+              <img src="imagens/ACOMPANHAMENTO.svg" alt="Acompanhamento em Campo">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title card-seo" data-i18n="services.item2Title">Acompanhamento em Campo</h3>
+              <p class="card-desc" data-i18n="services.item2Desc">Para garantir a correta aplicação dos equipamentos, oferecemos acompanhamento técnico especializado.</p>
+              <span class="btn" data-i18n="common.learnMore">Saiba Mais</span>
+            </div>
+          </a>
+
+          <a href="#" class="card-servico" aria-label="Treinamentos Operacionais">
+            <div class="card-img-wrap">
+              <img src="imagens/TREINAMENTOTEC.svg" alt="Treinamentos Operacionais">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title card-seo" data-i18n="services.item3Title">Treinamentos Operacionais e Palestras</h3>
+              <p class="card-desc" data-i18n="services.item3Desc">Capacitar as equipes é parte essencial para manter a segurança e a eficiência nas operações.</p>
+              <span class="btn" data-i18n="common.learnMore">Saiba Mais</span>
+            </div>
+          </a>
+
+          <a href="#" class="card-servico" aria-label="Inspeções Técnicas">
+            <div class="card-img-wrap">
+              <img src="imagens/INSPECOESTEC.svg" alt="Inspeções Técnicas">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title card-seo" data-i18n="services.item4Title">Inspeções Técnicas Preventivas e Corretivas</h3>
+              <p class="card-desc" data-i18n="services.item4Desc">Com o tempo, o uso contínuo de cintas, cabos e ganchos exige avaliações periódicas.</p>
+              <span class="btn" data-i18n="common.learnMore">Saiba Mais</span>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+      
+
+      <!-- ─── QUALIDADE ─── -->
+      <section id="qualidade" aria-labelledby="titulo-qualidade">
+        <div class="qualidade-box">
+          <div>
+            <h2 id="titulo-qualidade" data-i18n="quality.title1">Gestão de Qualidade Aplicada</h2>
+            <div class="underline"></div>
+            <p data-i18n="quality.desc1">Adotamos procedimentos industriais padronizados, com rastreabilidade completa dos insumos, inspeções sistemáticas e controle de qualidade em cada fase. Somos uma empresa certificada pela ISO 9001, o que assegura que nosso Sistema de Gestão da Qualidade atende aos mais altos critérios internacionais.</p>
+               <a href="#servicosespecializados" class="btn" style="margin-top:8px;" data-i18n="common.learnMore">Saiba Mais</a>
+            </div>
+          <div>
+            <h2 data-i18n="quality.title2">Tecnologia e Eficiência</h2>
+            <div class="underline"></div>
+            <p data-i18n="quality.desc2">Reconhecida nacionalmente como referência em soluções para elevação, movimentação e amarração de cargas, sempre com foco em segurança, precisão e confiabilidade. Contamos com uma equipe técnica altamente qualificada, pronta para oferecer suporte especializado e desenvolver soluções alinhadas às necessidades de cada cliente.</p>
+            <br>
+            <a href="#servicosespecializados" class="btn" style="margin-top:8px;" data-i18n="quality.specializedServices">Serviços Especializados</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── BLOG ─── -->
+      <section id="blog" aria-labelledby="titulo-blog">
+        <div class="section-header">
+          <h2 id="titulo-blog" data-i18n="blog.title">Blog</h2>
+          <div class="underline"></div>
+        </div>
+        <div class="blog-list" id="blogGrid">
+
+          <article class="card-blog">
+            <div class="card-image">  
+            <img src="imagens/ELEVAÇÃO.svg" alt="Como garantir segurança na movimentação de cargas">
+            </div>
+
+            <div class="card-body">
+              <h3 data-i18n="blog.item1Title">Como garantir segurança na movimentação de cargas</h3>
+              <p data-i18n="blog.item1Desc">Descubra as principais práticas e equipamentos utilizados para elevar e movimentar cargas de forma segura e eficiente.</p>
+              <a href="#" class="btn" style="margin-top:8px;font-size:11px;padding:7px 16px;" data-i18n="common.readMore">Ler mais</a>
+            </div>
+          </article>
+
+          <article class="card-blog">
+            <div class="card-image">
+            <img src="imagens/BANCO GUINDASTES.svg" alt="Tecnologia aplicada à inspeção industrial">
+            </div>
+            
+            <div class="card-body">
+              <h3 data-i18n="blog.item2Title">Tecnologia aplicada à inspeção industrial</h3>
+              <p data-i18n="blog.item2Desc">Conheça como a inovação tem aprimorado os processos de inspeção e controle de qualidade nas indústrias brasileiras.</p>
+              <a href="#" class="btn" style="margin-top:8px;font-size:11px;padding:7px 16px;" data-i18n="common.readMore">Ler mais</a>
+            </div>
+          </article>
+
+          <article class="card-blog">
+            <div class="card-image">
+            <img src="imagens/OFFSHORE.svg" alt="Novidades da Frati no setor offshore">
+            </div>
+
+            <div class="card-body">
+              <h3 data-i18n="blog.item3Title">Novidades da Frati no setor offshore</h3>
+              <p data-i18n="blog.item3Desc">Acompanhe as últimas participações da Frati em eventos e feiras voltadas à indústria offshore.</p>
+              <a href="#" class="btn" style="margin-top:8px;font-size:11px;padding:7px 16px;" data-i18n="common.readMore">Ler mais</a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+    </div><!-- /page-content -->
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="footer-inner">
+
+<div class="footer-col footer-products">
+  <h4 class="footertitleprod" data-i18n="footer.productsTitle">Produtos</h4>
+  <div class="footer-produtos-grid">
+    <ul>
+      <li><a href="#categorias" data-i18n="footer.product1">Cabo de Aço</a></li>
+      <li><a href="#categorias" data-i18n="footer.product2">Laço de Cabo de Aço</a></li>
+      <li><a href="#categorias" data-i18n="footer.product3">Linga de Corrente</a></li>
+      <li><a href="#categorias" data-i18n="footer.product4">Corrente</a></li>
+      <li><a href="#categorias" data-i18n="footer.product5">Cinta Sling</a></li>
+      <li><a href="#categorias" data-i18n="footer.product6">Amarração</a></li>
+      <li><a href="#categorias" data-i18n="footer.product7">Acessórios</a></li>
+      <li><a href="#categorias" data-i18n="footer.product8">Equipamentos</a></li>
+      <li><a href="#categorias" data-i18n="footer.product9">Ferramentas</a></li>
+      <li><a href="#categorias" data-i18n="footer.product10">Lubrificantes</a></li>
+    </ul>
+  </div>
+</div>
+
+      <div class="footer-col">
+        <h4 data-i18n="footer.navigationTitle">Navegação</h4>
+        <ul>
+          <li><a href="#empresa" data-i18n="footer.navCompany">Empresa</a></li>
+          <li><a href="#produtos" data-i18n="footer.navProducts">Produtos</a></li>
+          <li><a href="#servicos" data-i18n="footer.navServices">Serviços</a></li>
+          <li><a href="#blog" data-i18n="footer.navBlog">Blog</a></li>
+          <li><a href="#contato" data-i18n="footer.navContact">Contato</a></li>
+          <li><a href="#politica-privacidade" data-i18n="footer.navPrivacy">Política de Privacidade</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-contact">
+        <h4 data-i18n="footer.contactTitle">Contatos</h4>
+        <ul class="footer-contact-list">
+          <li data-i18n="footer.phoneValue">(11) 2538-8404</li>
+          <li data-i18n="footer.emailValue">vendas@frati.com.br</li>
+        </ul>
+        <h4 class="footer-subtitle" data-i18n="footer.addressTitle">Endereço</h4>
+        <p class="footer-address" data-i18n="footer.addressValue">Rua Galatea<br>Carandiru, São Paulo - SP<br>CEP: 02068-000</p>
+      </div>
+
+      <div class="footer-brand">
+        <img src="imagens/logoprtret.svg" alt="Frati Suprimentos">
+
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+  <p data-i18n="footer.copyright">© 2026 Frati Equipamentos — Todos os direitos reservados.</p>
+
+  <div class="footer-social">
+    <a href="https://www.instagram.com/fratisuprimentos/" target="_blank" rel="noopener noreferrer"><img src="imagens/instagrampto.svg" alt="Instagram" class="icon-instagram"></a>
+    <a href="https://www.linkedin.com/company/frati-equipamentos" target="_blank" rel="noopener noreferrer"><img src="imagens/linkedinpto.svg" alt="LinkedIn" class="icon-linkedin"></a>
+    <a href="https://www.youtube.com/channel/UC8HJx7v5X9Q9ZQ9Z9Z9Z9Q9" target="_blank" rel="noopener noreferrer"><img src="imagens/youtubepto.svg" alt="YouTube" class="icon-youtube"></a>
+  </div>
+</div>
+  </footer>
+
+  <script src="i18n.js" defer></script>
+  <script src="ui.js" defer></script>
+</body>
+</html>
