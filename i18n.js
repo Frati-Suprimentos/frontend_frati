@@ -98,7 +98,7 @@ const translations = {
     "hero.description": "We combine quality, technology, and specialized support to deliver products that meet strict technical standards, ensuring safety and confidence in every application.",
     "hero.ctaLearn": "LEARN MORE",
     "hero.ctaContact": "CONTACT US",
-    "about.title": "Welcome to Frati",
+    "about.title": "Get to know Frati",
     "about.p1": "Frati Suprimentos was founded to meet the demand for safe and efficient industrial solutions. With over 20 years of experience, it has become a reference in the Brazilian market for lifting, lashing, and load handling.",
     "about.p2": "Our technical team combines specialized expertise with personalized service, ensuring tailored solutions for each customer.",
     "about.linkQuality": "→ Quality Control",

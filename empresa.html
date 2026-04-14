@@ -11,7 +11,7 @@
 <body>
 
   <!-- ========== HEADER FIXO ========== -->
-  <header>
+  <header class="site-header">
 
     <!-- TOPBAR: logo + redes + idioma -->
     <div class="topbar">
@@ -32,8 +32,12 @@
             <a href="https://www.youtube.com/@FratiSuprimentos" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
               <img src="imagens/youtubevr.svg" alt="YouTube">
             </a>
-            
-            <a href="#" id="languageToggle" class="btn btn-eng" aria-label="Switch language" data-i18n="topbar.languageButton">English <img src="imagens/worldbr.svg" alt=""></a>
+
+            <div class="language-switch">
+              <button id="languageToggle" type="button" aria-label="Trocar idioma">
+                <img id="languageFlag" src="imagens/english.svg" alt="English">
+              </button>
+            </div>
           </nav>
         </div>
       </div>
@@ -42,25 +46,35 @@
     <!-- NAVBAR: menu + botão loja -->
     <div class="navbar">
       <div class="navbar-inner">
-        <nav aria-label="Menu principal">
-          <ul>
+        <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Abrir menu">
+          <span class="nav-toggle-box" aria-hidden="true">
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+          </span>
+        </button>
+        <nav id="mainNav" class="main-nav" aria-label="Menu principal">
+          <ul class="main-nav-list">
             <li><a href="index.html" data-i18n="nav.home">Home</a></li>
             <li><a href="empresa.html" data-i18n="nav.institutional">Institucional</a></li>
             <li><a href="produtos.html" data-i18n="nav.products">Produtos</a></li>
             <li><a href="catalogo.html" data-i18n="nav.catalog">Catálogo</a></li>
-             <li><a href="servicos.html" data-i18n="nav.services">Serviços</a></li>
+            <li><a href="servico.html" data-i18n="nav.services">Serviços</a></li>
             <li><a href="blog.html" data-i18n="nav.blog">Blog</a></li>
             <li><a href="contato.html" data-i18n="nav.contact">Contato</a></li>
           </ul>
+          <a href="https://www.lojafrati.com.br/" target="_blank" rel="noopener noreferrer" class="btn btn-loja main-nav-loja" data-i18n="nav.store">Loja Virtual</a>
         </nav>
-        <a href="https://www.lojafrati.com.br/" target="_blank" rel="noopener noreferrer" class="btn btn-loja" aria-label="Acessar loja virtual" data-i18n="nav.store">Loja Virtual</a>
+        <a href="https://www.lojafrati.com.br/" target="_blank" rel="noopener noreferrer" class="btn btn-loja navbar-loja-desktop" data-i18n="nav.store">Loja Virtual</a>
       </div>
     </div>
 
   </header>
-              <!-- ─── INSTITUCIONAL ─── -->
+  <div class="nav-backdrop" id="navBackdrop" hidden></div>
+
+  <main class="page-content">
       <section id="empresa" aria-labelledby="titulo-empresa">
-        <div class="empresa-gridinstitucional">
+        <div class="empresa-grid empresa-gridinstitucional">
           <div class="empresa-text">
             <h2 id="titulo-empresa" data-i18n="about.title">Conheça a Frati</h2>
             <div class="underline"></div>
@@ -72,15 +86,14 @@
               <a href="#profissionais" data-i18n="about.linkExperts">→ Profissionais Especializados</a>
             </nav>
           </div>
-          <div>
-            <!-- espaço para imagem com bordas arredondadas -->
-             <div style="width:100%;aspect-ratio:4/3;border-radius:var(--radius);overflow:hidden;display:flex;align-items:center;justify-content:center;">
-               <img src="imagens/sobrenos.svg" alt="Conheça a Frati" style="width:100%;height:100%;object-fit:contain;">
-             </div>
-            </div>
+          <div class="empresa-media">
+            <figure class="empresa-figure">
+              <img src="imagens/sobrenos.svg" alt="" width="800" height="600" decoding="async" loading="lazy">
+            </figure>
           </div>
         </div>
       </section>
+  </main>
 
   <script src="i18n.js" defer></script>
   <script src="ui.js" defer></script>

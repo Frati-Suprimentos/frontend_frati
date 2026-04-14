@@ -11,7 +11,7 @@
 <body>
 
   <!-- ========== HEADER FIXO ========== -->
-  <header>
+  <header class="site-header">
 
     <!-- TOPBAR: logo + redes + idioma -->
     <div class="topbar">
@@ -32,7 +32,7 @@
             <a href="https://www.youtube.com/@FratiSuprimentos" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
               <img src="imagens/youtubevr.svg" alt="YouTube">
             </a>
-            
+
             <div class="language-switch">
               <button id="languageToggle" type="button" aria-label="Trocar idioma">
                 <img id="languageFlag" src="imagens/english.svg" alt="English">
@@ -46,22 +46,31 @@
     <!-- NAVBAR: menu + botão loja -->
     <div class="navbar">
       <div class="navbar-inner">
-        <nav aria-label="Menu principal">
-          <ul>
+        <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Abrir menu">
+          <span class="nav-toggle-box" aria-hidden="true">
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+            <span class="nav-toggle-bar"></span>
+          </span>
+        </button>
+        <nav id="mainNav" class="main-nav" aria-label="Menu principal">
+          <ul class="main-nav-list">
             <li><a href="index.html" data-i18n="nav.home">Home</a></li>
             <li><a href="empresa.html" data-i18n="nav.institutional">Institucional</a></li>
             <li><a href="#produtos" data-i18n="nav.products">Produtos</a></li>
-            <li><a href="#catalogo" data-i18n="nav.catalog">Catálogo</a></li>
-             <li><a href="#servicos" data-i18n="nav.services">Serviços</a></li>
+            <li><a href="catalogo.html" data-i18n="nav.catalog">Catálogo</a></li>
+            <li><a href="#servicos" data-i18n="nav.services">Serviços</a></li>
             <li><a href="#blog" data-i18n="nav.blog">Blog</a></li>
             <li><a href="#contato" data-i18n="nav.contact">Contato</a></li>
           </ul>
+          <a href="https://www.lojafrati.com.br/" target="_blank" rel="noopener noreferrer" class="btn btn-loja main-nav-loja" data-i18n="nav.store">Loja Virtual</a>
         </nav>
-        <a href="https://www.lojafrati.com.br/" target="_blank" rel="noopener noreferrer" class="btn btn-loja" aria-label="Acessar loja virtual" data-i18n="nav.store">Loja Virtual</a>
+        <a href="https://www.lojafrati.com.br/" target="_blank" rel="noopener noreferrer" class="btn btn-loja navbar-loja-desktop" data-i18n="nav.store">Loja Virtual</a>
       </div>
     </div>
 
   </header>
+  <div class="nav-backdrop" id="navBackdrop" hidden></div>
 
   <!-- ========== CONTEÚDO PRINCIPAL ========== -->
   <main>
@@ -118,12 +127,10 @@
               <a href="#profissionais" data-i18n="about.linkExperts">→ Profissionais Especializados</a>
             </nav>
           </div>
-          <div>
-            <!-- espaço para imagem com bordas arredondadas -->
-             <div style="width:100%;aspect-ratio:4/3;border-radius:var(--radius);overflow:hidden;display:flex;align-items:center;justify-content:center;">
-               <img src="imagens/sobrenos.svg" alt="Conheça a Frati" style="width:100%;height:100%;object-fit:contain;">
-             </div>
-            </div>
+          <div class="empresa-media">
+            <figure class="empresa-figure">
+              <img src="imagens/sobrenos.svg" alt="" width="800" height="600" decoding="async" loading="lazy">
+            </figure>
           </div>
         </div>
       </section>
@@ -136,7 +143,7 @@
           <p data-i18n="products.description">Linha completa para elevação, amarração e movimentação de cargas industriais.</p>
         </div>
 
-        <div class="cards-grid" id="productsGrid">
+        <div class="cards-grid products-carousel" id="productsGrid">
 
           <a href="#" class="card-produto" aria-label="Cabo de Aço">
             <div class="card-img-wrap">
@@ -228,15 +235,15 @@
               <span class="btn" data-i18n="common.seeMore">Ver mais</span>
             </div>
           </a>
-         <br>
         </div>
       </section>
 
       <!-- ─── SERVIÇOS ─── -->
+      <section id="servicos" aria-labelledby="titulo-servicos">
       <div class="servicos servicos-header">
-  
+
   <div class="servicos-left">
-    <h2 data-i18n="services.title">Soluções em Destaque</h2>
+    <h2 id="titulo-servicos" data-i18n="services.title">Soluções em Destaque</h2>
     <br>
     <div class="underline"></div>
     <p class="servicos-text" data-i18n="services.subtitle">Soluções completas e seguras para cada etapa da sua operação</p>
@@ -300,8 +307,6 @@
 
         </div>
       </section>
-
-      
 
       <!-- ─── QUALIDADE ─── -->
       <section id="qualidade" aria-labelledby="titulo-qualidade">
@@ -374,63 +379,38 @@
 
   <!-- ========== FOOTER ========== -->
   <footer>
-    <div class="footer-inner">
-
-<div class="footer-col footer-products">
-  <h4 class="footertitleprod" data-i18n="footer.productsTitle">Produtos</h4>
-  <div class="footer-produtos-grid">
-    <ul>
-      <li><a href="#categorias" data-i18n="footer.product1">Cabo de Aço</a></li>
-      <li><a href="#categorias" data-i18n="footer.product2">Laço de Cabo de Aço</a></li>
-      <li><a href="#categorias" data-i18n="footer.product3">Linga de Corrente</a></li>
-      <li><a href="#categorias" data-i18n="footer.product4">Corrente</a></li>
-      <li><a href="#categorias" data-i18n="footer.product5">Cinta Sling</a></li>
-      <li><a href="#categorias" data-i18n="footer.product6">Amarração</a></li>
-      <li><a href="#categorias" data-i18n="footer.product7">Acessórios</a></li>
-      <li><a href="#categorias" data-i18n="footer.product8">Equipamentos</a></li>
-      <li><a href="#categorias" data-i18n="footer.product9">Ferramentas</a></li>
-      <li><a href="#categorias" data-i18n="footer.product10">Lubrificantes</a></li>
-    </ul>
-  </div>
-</div>
-
-      <div class="footer-col">
-        <h4 data-i18n="footer.navigationTitle">Navegação</h4>
-        <ul>
-          <li><a href="#empresa" data-i18n="footer.navCompany">Empresa</a></li>
-          <li><a href="#produtos" data-i18n="footer.navProducts">Produtos</a></li>
-          <li><a href="#servicos" data-i18n="footer.navServices">Serviços</a></li>
-          <li><a href="#blog" data-i18n="footer.navBlog">Blog</a></li>
-          <li><a href="#contato" data-i18n="footer.navContact">Contato</a></li>
-          <li><a href="#politica-privacidade" data-i18n="footer.navPrivacy">Política de Privacidade</a></li>
-        </ul>
+    <div class="footer-inner footer-inner--compact">
+      <div class="footer-brand">
+        <a href="index.html"><img src="imagens/logoprtret.svg" alt="Frati Suprimentos"></a>
       </div>
 
       <div class="footer-col footer-contact">
-        <h4 data-i18n="footer.contactTitle">Contatos</h4>
-        <ul class="footer-contact-list">
-          <li data-i18n="footer.phoneValue">(11) 2538-8404</li>
-          <li data-i18n="footer.emailValue">vendas@frati.com.br</li>
+        <div class="footer-contact-row">
+          <div class="footer-contact-block">
+            <h4 data-i18n="footer.contactTitle">Contatos</h4>
+            <ul class="footer-contact-list">
+              <li><a href="tel:+551125388404" data-i18n="footer.phoneValue">(11) 2538-8404</a></li>
+              <li><a href="mailto:vendas@frati.com.br" data-i18n="footer.emailValue">vendas@frati.com.br</a></li>
+            </ul>
+          </div>
+          <div class="footer-address-block">
+            <h4 class="footer-subtitle" data-i18n="footer.addressTitle">Endereço</h4>
+            <p class="footer-address" data-i18n="footer.addressValue">Rua Galatea<br>Carandiru, São Paulo - SP<br>CEP: 02068-000</p>
+          </div>
+        </div>
+      </div>
+
+      <nav class="footer-social-wrap" aria-label="Redes sociais">
+        <ul class="footer-social">
+          <li><a href="https://www.instagram.com/fratisuprimentos/" target="_blank" rel="noopener noreferrer"><img src="imagens/instagrampto.svg" alt="Instagram" class="icon-instagram"></a></li>
+          <li><a href="https://www.linkedin.com/company/frati-equipamentos" target="_blank" rel="noopener noreferrer"><img src="imagens/linkedinpto.svg" alt="LinkedIn" class="icon-linkedin"></a></li>
+          <li><a href="https://www.youtube.com/channel/UC8HJx7v5X9Q9ZQ9Z9Z9Z9Q9" target="_blank" rel="noopener noreferrer"><img src="imagens/youtubepto.svg" alt="YouTube" class="icon-youtube"></a></li>
         </ul>
-        <h4 class="footer-subtitle" data-i18n="footer.addressTitle">Endereço</h4>
-        <p class="footer-address" data-i18n="footer.addressValue">Rua Galatea<br>Carandiru, São Paulo - SP<br>CEP: 02068-000</p>
-      </div>
-
-      <div class="footer-brand">
-        <img src="imagens/logoprtret.svg" alt="Frati Suprimentos">
-
-      </div>
-
+      </nav>
     </div>
     <div class="footer-bottom">
-  <p data-i18n="footer.copyright">© 2026 Frati Equipamentos — Todos os direitos reservados.</p>
-
-  <div class="footer-social">
-    <a href="https://www.instagram.com/fratisuprimentos/" target="_blank" rel="noopener noreferrer"><img src="imagens/instagrampto.svg" alt="Instagram" class="icon-instagram"></a>
-    <a href="https://www.linkedin.com/company/frati-equipamentos" target="_blank" rel="noopener noreferrer"><img src="imagens/linkedinpto.svg" alt="LinkedIn" class="icon-linkedin"></a>
-    <a href="https://www.youtube.com/channel/UC8HJx7v5X9Q9ZQ9Z9Z9Z9Q9" target="_blank" rel="noopener noreferrer"><img src="imagens/youtubepto.svg" alt="YouTube" class="icon-youtube"></a>
-  </div>
-</div>
+      <p data-i18n="footer.copyright">© 2026 Frati Equipamentos — Todos os direitos reservados.</p>
+    </div>
   </footer>
 
   <script src="i18n.js" defer></script>
