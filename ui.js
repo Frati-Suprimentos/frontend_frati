@@ -1,6 +1,6 @@
 // SETTINGS: update these values when needed.
 const WHATSAPP_TARGET_PHONE = "5511999999999";
-const WHATSAPP_ICON_PATH = "imagens/whatsappvr.svg";
+const WHATSAPP_ICON_PATH = "imagens/whatsapp.svg";
 const I18N_STORAGE_KEY = "frati.locale";
 
 const modalI18n = {
@@ -12,13 +12,16 @@ const modalI18n = {
     name: "Nome",
     phone: "Telefone",
     subject: "Assunto",
+    placeholderName: "Digite seu nome",
+    placeholderPhone: "Digite seu telefone",
+    placeholderSubject: "Digite o assunto",
     submit: "Enviar pelo WhatsApp",
     messageIntro: "Ola, vim pelo site da Frati.",
     messageName: "Nome",
     messagePhone: "Telefone",
     messageSubject: "Assunto"
   },
-  en: {
+  "en-US": {
     modalAria: "Open WhatsApp form",
     topAria: "Back to top",
     closeAria: "Close form",
@@ -26,6 +29,9 @@ const modalI18n = {
     name: "Name",
     phone: "Phone",
     subject: "Subject",
+    placeholderName: "Enter your name",
+    placeholderPhone: "Enter your phone",
+    placeholderSubject: "Enter the subject",
     submit: "Send via WhatsApp",
     messageIntro: "Hello, I came from Frati website.",
     messageName: "Name",
@@ -36,9 +42,10 @@ const modalI18n = {
 
 const getCurrentLocale = () => {
   const fromStorage = window.localStorage.getItem(I18N_STORAGE_KEY);
-  if (fromStorage === "en" || fromStorage === "en-US") return "en";
+  if (fromStorage === "en" || fromStorage === "en-US") return "en-US";
   return "pt-BR";
 };
+const getCurrentLabels = () => modalI18n[getCurrentLocale()] || modalI18n["pt-BR"];
 
 const ensureFloatingUi = () => {
   const locale = getCurrentLocale();
@@ -73,13 +80,13 @@ const ensureFloatingUi = () => {
         <h3 id="whatsappFormTitle">${labels.title}</h3>
         <form id="whatsappForm" class="whatsapp-form">
           <label for="waName">${labels.name}</label>
-          <input id="waName" name="name" type="text" required>
+          <input id="waName" name="name" type="text" placeholder="${labels.placeholderName}" required>
 
           <label for="waPhone">${labels.phone}</label>
-          <input id="waPhone" name="phone" type="tel" required>
+          <input id="waPhone" name="phone" type="tel" placeholder="${labels.placeholderPhone}" required>
 
           <label for="waSubject">${labels.subject}</label>
-          <input id="waSubject" name="subject" type="text" required>
+          <input id="waSubject" name="subject" type="text" placeholder="${labels.placeholderSubject}" required>
 
           <button type="submit" class="btn whatsapp-submit">${labels.submit}</button>
         </form>
@@ -101,9 +108,6 @@ const buildWhatsappMessage = (name, phone, subject, labels) => {
 
 const initFloatingUi = () => {
   ensureFloatingUi();
-  const locale = getCurrentLocale();
-  const labels = modalI18n[locale];
-
   const whatsappButton = document.getElementById("whatsappFloatButton");
   const whatsappIcon = document.getElementById("whatsappFloatIcon");
   const whatsappModal = document.getElementById("whatsappModal");
@@ -120,6 +124,37 @@ const initFloatingUi = () => {
   if (whatsappIcon) {
     whatsappIcon.setAttribute("src", WHATSAPP_ICON_PATH);
   }
+
+  const applyFloatingLocale = () => {
+    const labels = getCurrentLabels();
+    if (whatsappButton) {
+      whatsappButton.setAttribute("aria-label", labels.modalAria);
+    }
+    if (scrollTopButton) {
+      scrollTopButton.setAttribute("aria-label", labels.topAria);
+    }
+    if (whatsappModalClose) {
+      whatsappModalClose.setAttribute("aria-label", labels.closeAria);
+    }
+    const title = document.getElementById("whatsappFormTitle");
+    const labelName = document.querySelector('label[for="waName"]');
+    const labelPhone = document.querySelector('label[for="waPhone"]');
+    const labelSubject = document.querySelector('label[for="waSubject"]');
+    const inputName = document.getElementById("waName");
+    const inputPhone = document.getElementById("waPhone");
+    const inputSubject = document.getElementById("waSubject");
+    const submitButton = whatsappForm ? whatsappForm.querySelector(".whatsapp-submit") : null;
+    if (title) title.textContent = labels.title;
+    if (labelName) labelName.textContent = labels.name;
+    if (labelPhone) labelPhone.textContent = labels.phone;
+    if (labelSubject) labelSubject.textContent = labels.subject;
+    if (inputName) inputName.setAttribute("placeholder", labels.placeholderName);
+    if (inputPhone) inputPhone.setAttribute("placeholder", labels.placeholderPhone);
+    if (inputSubject) inputSubject.setAttribute("placeholder", labels.placeholderSubject);
+    if (submitButton) submitButton.textContent = labels.submit;
+  };
+  applyFloatingLocale();
+  window.addEventListener("frati:language-changed", applyFloatingLocale);
 
   if (whatsappButton) {
     whatsappButton.addEventListener("click", () => toggleModal(true));
@@ -140,6 +175,7 @@ const initFloatingUi = () => {
   if (whatsappForm) {
     whatsappForm.addEventListener("submit", (event) => {
       event.preventDefault();
+      const labels = getCurrentLabels();
       const formData = new FormData(whatsappForm);
       const name = String(formData.get("name") || "").trim();
       const phone = String(formData.get("phone") || "").trim();

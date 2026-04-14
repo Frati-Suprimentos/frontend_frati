@@ -1091,25 +1091,39 @@ footer {
 }
 
 /* BOTÃO DE TROCA DE IDIOMA */
-.language-switch img { display: none; }
-.language-switch img.active { display: block; }
-
 .language-switch {
   display: flex;
   align-items: center;
 }
 
-.language-switch img {
-  display: none;
-  height: 32px;
-  width: 32px;
+.language-switch button {
   border: none;
-  outline: none;
+  background: transparent;
+  padding: 0;
   cursor: pointer;
 }
 
-.language-switch img.active {
+.language-switch img {
   display: block;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  clip-path: circle(50% at 50% 50%);
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.language-switch img:focus,
+.language-switch img:focus-visible,
+.language-switch img:active {
+  outline: none;
+  border: none;
+  box-shadow: none;
 }
 
 @media (max-width: 600px) {
