@@ -205,4 +205,63 @@ const initFloatingUi = () => {
   }
 };
 
-document.addEventListener("DOMContentLoaded", initFloatingUi);
+const initMobileNav = () => {
+  const toggle = document.getElementById("navToggle");
+  const nav = document.getElementById("mainNav");
+  const backdrop = document.getElementById("navBackdrop");
+  if (!toggle || !nav) return;
+
+  const menuLabels = () => {
+    const locale = getCurrentLocale();
+    if (locale === "en-US") {
+      return { open: "Open main menu", close: "Close main menu" };
+    }
+    return { open: "Abrir menu principal", close: "Fechar menu principal" };
+  };
+
+  const applyToggleLabel = (isOpen) => {
+    const { open, close } = menuLabels();
+    toggle.setAttribute("aria-label", isOpen ? close : open);
+  };
+
+  const setNavOpen = (open) => {
+    nav.classList.toggle("is-open", open);
+    toggle.classList.toggle("is-open", open);
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    applyToggleLabel(open);
+    document.body.classList.toggle("nav-open", open);
+    if (backdrop) {
+      backdrop.classList.toggle("is-visible", open);
+      backdrop.hidden = !open;
+    }
+  };
+
+  applyToggleLabel(false);
+
+  toggle.addEventListener("click", () => {
+    setNavOpen(!nav.classList.contains("is-open"));
+  });
+
+  if (backdrop) {
+    backdrop.addEventListener("click", () => setNavOpen(false));
+  }
+
+  nav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setNavOpen(false));
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && nav.classList.contains("is-open")) {
+      setNavOpen(false);
+    }
+  });
+
+  window.addEventListener("frati:language-changed", () => {
+    applyToggleLabel(nav.classList.contains("is-open"));
+  });
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  initFloatingUi();
+  initMobileNav();
+});
