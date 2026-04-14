@@ -181,6 +181,20 @@ const getStoredLocale = () => {
 const setLocaleOnHtml = (locale) => {
   document.documentElement.lang = locale;
 };
+const updateLanguageToggle = (locale) => {
+  const languageFlag = document.getElementById("languageFlag");
+  const languageToggle = document.getElementById("languageToggle");
+  if (!languageFlag || !languageToggle) return;
+  if (locale === "pt-BR") {
+    languageFlag.src = "imagens/english.svg";
+    languageFlag.alt = "English";
+    languageToggle.setAttribute("aria-label", "Switch to English");
+    return;
+  }
+  languageFlag.src = "imagens/portugues.svg";
+  languageFlag.alt = "Português";
+  languageToggle.setAttribute("aria-label", "Mudar para Português");
+};
 function translatePage(locale) {
   const localeTable = translations[locale];
   const elements = document.querySelectorAll("[data-i18n]");
@@ -192,31 +206,26 @@ function translatePage(locale) {
     element.innerHTML = translatedValue;
   });
 
-  // ADICIONE AQUI DENTRO
-  const ptImg = document.querySelector('.language-switch img[alt="Português"]');
-  const enImg = document.querySelector('.language-switch img[alt="English"]');
-
-  if (ptImg && enImg) {
-    if (locale === 'pt-BR') {
-      ptImg.classList.remove('active');
-      enImg.classList.add('active');
-    } else {
-      enImg.classList.remove('active');
-      ptImg.classList.add('active');
-    }
-  }
 }
 
 function setLanguage(locale) {
-  window.localStorage.setItem(STORAGE_KEY, locale);
-  setLocaleOnHtml(locale);
-  translatePage(locale);
+  const normalizedLocale = normalizeLocale(locale);
+  window.localStorage.setItem(STORAGE_KEY, normalizedLocale);
+  setLocaleOnHtml(normalizedLocale);
+  translatePage(normalizedLocale);
+  updateLanguageToggle(normalizedLocale);
+  window.dispatchEvent(
+    new CustomEvent("frati:language-changed", {
+      detail: { locale: normalizedLocale }
+    })
+  );
 }
 window.setLanguage = setLanguage;
 function loadLanguage() {
   const initialLocale = getStoredLocale();
   setLocaleOnHtml(initialLocale);
   translatePage(initialLocale);
+  updateLanguageToggle(initialLocale);
   const languageToggle = document.getElementById("languageToggle");
   if (languageToggle) {
     languageToggle.addEventListener("click", (event) => {
