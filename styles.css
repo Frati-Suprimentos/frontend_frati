@@ -779,12 +779,31 @@ section {
   object-fit: contain;
 }
 
+.empresa-figure-institucional {
+  margin: 0;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.empresa-figure-institucional img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .empresa-gridinstitucional {
   margin-top: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
-  align-items: center;
+  align-items: start;
 }
 .empresa-text h2 {
   color: var(--text-dark);
@@ -793,6 +812,15 @@ section {
   font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 8px;
+}
+.empresa-text h3 {
+  color: var(--text-dark);
+  font-family: sans-serif;
+  font-size: clamp(18px, 2.2vw, 24px);
+  font-weight: 700;
+  text-transform: none;
+  margin-top: 4px;
+  margin-bottom: 6px;
 }
 .empresa-text .underline {
   width: 40px; height: 3px;
@@ -805,6 +833,30 @@ section {
   line-height: 1.75;
   color: var(--text-mid);
   margin-bottom: 16px;
+}
+/* Lista com marcadores (ul global está sem estilo) */
+.empresa-list {
+  list-style: disc outside;
+  padding-left: 1.25em;
+  margin: 0 0 16px;
+}
+.empresa-list li {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--text-mid);
+  margin-bottom: 6px;
+}
+.empresa-quality-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.empresa-doc-btn {
+  text-transform: none;
+  letter-spacing: 0.04em;
 }
 .empresa-links {
   display: flex;
@@ -944,6 +996,25 @@ footer {
   border-bottom: 1px solid rgba(32, 43, 56, 0.18);
 }
 
+/* Rodapé completo (desktop) vs compacto (somente mobile) */
+.footer-inner--desktop {
+  display: grid;
+}
+
+.footer-inner--mobile-only {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .footer-inner--desktop {
+    display: none !important;
+  }
+
+  .footer-inner--mobile-only {
+    display: grid !important;
+  }
+}
+
 /* Rodapé compacto: logo, contato/endereço, redes */
 .footer-inner--compact {
   grid-template-columns: auto minmax(0, 1.2fr) auto;
@@ -1022,7 +1093,6 @@ footer {
 
 .footer-inner--compact + .footer-bottom {
   padding: 8px 24px 12px;
-  font-size: 10px;
   justify-content: center;
   color: #4a5a6a;
 }
@@ -1126,6 +1196,12 @@ footer {
   gap: 12px;
 }
 
+.footer-bottom .footer-social--desktop {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
 .footer-brand img {
   height: 100px;
   width: auto;
@@ -1158,6 +1234,8 @@ footer {
   :root {
     --topbar-height: 70px;
     --navbar-height: 52px;
+    /* Logo no mobile (topbar + rodapé): altere só este valor para mudar os dois de uma vez */
+    --logo-mobile-max-height: 50px;
   }
 
   .logo {
@@ -1165,7 +1243,7 @@ footer {
   }
 
   .logo img {
-    max-height: 100px;
+    max-height: var(--logo-mobile-max-height);
     max-width: 100%;
   }
 
@@ -1314,7 +1392,11 @@ footer {
   .empresa-gridinstitucional {
     grid-template-columns: 1fr;
     margin-top: 24px;
-    gap: 0;
+    gap: 24px;
+  }
+
+  .empresa-gridinstitucional .empresa-media {
+    display: block;
   }
 
   /* Produtos em carrossel */
@@ -1374,24 +1456,34 @@ footer {
     padding: 32px 20px;
   }
 
-  /* Blog: cards em coluna */
-  .blog-list {
+  /* Blog: carrossel horizontal (mesmo padrão dos produtos) */
+  .blog-list.products-carousel {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
     margin-left: 0;
     margin-right: 0;
-    gap: 20px;
+    padding: 4px 12px 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
   }
 
-  .card-blog {
+  .blog-list.products-carousel .card-blog {
+    flex: 0 0 min(78vw, 300px);
+    scroll-snap-align: start;
+    max-width: 300px;
     flex-direction: column;
   }
 
-  .card-blog .card-image {
+  .blog-list.products-carousel .card-blog .card-image {
     width: 100%;
     min-width: 0;
     height: 200px;
   }
 
-  .card-blog .card-body {
+  .blog-list.products-carousel .card-blog .card-body {
     padding: 18px 16px;
   }
 
@@ -1403,12 +1495,15 @@ footer {
     align-items: start;
   }
 
-  .footer-social-wrap {
-    justify-content: flex-start;
+  .footer-inner--compact .footer-social-wrap {
+    width: 100%;
+    justify-content: center;
   }
 
   .footer-inner--compact .footer-brand img {
-    height: 48px;
+    height: auto;
+    max-height: var(--logo-mobile-max-height);
+    width: auto;
   }
 
   .footer-inner--compact + .footer-bottom {
@@ -1419,6 +1514,10 @@ footer {
   .footer-contact-row {
     gap: 10px 18px;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .footer-bottom .footer-social--desktop {
+    display: none;
   }
 
   /* Grid genérico de cards (páginas sem carrossel) */

@@ -1,5 +1,5 @@
 // SETTINGS: update these values when needed.
-const WHATSAPP_TARGET_PHONE = "5511999999999";
+const WHATSAPP_TARGET_PHONE = "5511917623303";
 const WHATSAPP_ICON_PATH = "imagens/whatsapp.svg";
 const I18N_STORAGE_KEY = "frati.locale";
 
@@ -14,7 +14,7 @@ const modalI18n = {
     subject: "Assunto",
     placeholderName: "Digite seu nome",
     placeholderPhone: "Digite seu telefone",
-    placeholderSubject: "Digite o assunto",
+    placeholderSubject: "Gostaria de orçar o cabo de aço...",
     submit: "Enviar pelo WhatsApp",
     messageIntro: "Ola, vim pelo site da Frati.",
     messageName: "Nome",
@@ -31,7 +31,7 @@ const modalI18n = {
     subject: "Subject",
     placeholderName: "Enter your name",
     placeholderPhone: "Enter your phone",
-    placeholderSubject: "Enter the subject",
+    placeholderSubject: "I would like to request a quote for wire rope...",
     submit: "Send via WhatsApp",
     messageIntro: "Hello, I came from Frati website.",
     messageName: "Name",
@@ -80,13 +80,13 @@ const ensureFloatingUi = () => {
         <h3 id="whatsappFormTitle">${labels.title}</h3>
         <form id="whatsappForm" class="whatsapp-form">
           <label for="waName">${labels.name}</label>
-          <input id="waName" name="name" type="text" placeholder="${labels.placeholderName}" required>
+          <input id="waName" name="name" type="text" placeholder="${labels.placeholderName}" autocomplete="name" required aria-required="true">
 
           <label for="waPhone">${labels.phone}</label>
-          <input id="waPhone" name="phone" type="tel" placeholder="${labels.placeholderPhone}" required>
+          <input id="waPhone" name="phone" type="tel" placeholder="${labels.placeholderPhone}" autocomplete="tel" required aria-required="true">
 
           <label for="waSubject">${labels.subject}</label>
-          <input id="waSubject" name="subject" type="text" placeholder="${labels.placeholderSubject}" required>
+          <input id="waSubject" name="subject" type="text" placeholder="${labels.placeholderSubject}" required aria-required="true">
 
           <button type="submit" class="btn whatsapp-submit">${labels.submit}</button>
         </form>
@@ -175,6 +175,10 @@ const initFloatingUi = () => {
   if (whatsappForm) {
     whatsappForm.addEventListener("submit", (event) => {
       event.preventDefault();
+      if (!whatsappForm.checkValidity()) {
+        whatsappForm.reportValidity();
+        return;
+      }
       const labels = getCurrentLabels();
       const formData = new FormData(whatsappForm);
       const name = String(formData.get("name") || "").trim();
