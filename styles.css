@@ -403,7 +403,17 @@ body.nav-open {
   padding-left: clamp(16px, 8vw, 80px);
   letter-spacing: 0.02em;
 }
-.hero-text h1 span { color: var(--red); }
+
+.hero-title-desktop {
+  display: block;
+}
+
+.hero-title-mobile {
+  display: none;
+}
+.hero-text h1 span:not(.hero-title-desktop):not(.hero-title-mobile) {
+  color: var(--red);
+}
 .hero-text p {
   font-size: 13px;
   line-height: 1.7;
@@ -1369,6 +1379,14 @@ footer {
     max-width: 100%;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+  }
+
+  .hero-text h1 .hero-title-desktop {
+    display: none;
+  }
+
+  .hero-text h1 .hero-title-mobile {
+    display: block;
   }
 
   .hero-text h1 br {
